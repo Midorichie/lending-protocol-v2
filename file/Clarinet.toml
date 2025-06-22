@@ -1,0 +1,14 @@
+[project]
+name = "lending-protocol"
+
+[[contracts]]
+name = "lending-protocol"
+path = "contracts/lending-protocol.clar"
+
+[[contracts]]
+name = "oracle"
+path = "contracts/oracle.clar"
+
+[[contracts]]
+name = "utils"
+path = "contracts/utils.clar"
