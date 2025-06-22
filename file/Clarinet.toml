@@ -1,14 +1,30 @@
 [project]
-name = "lending-protocol"
+name = "enhanced-lending-protocol"
+version = "2.0.0"
+description = "A comprehensive decentralized lending protocol with governance and advanced security features"
+authors = ["DeFi Team"]
+license = "MIT"
+keywords = ["defi", "lending", "stacks", "clarity"]
 
-[[contracts]]
-name = "lending-protocol"
-path = "contracts/lending-protocol.clar"
+[contracts.utilities]
+path = "contracts/utilities.clar"
+depends_on = []
 
-[[contracts]]
-name = "oracle"
+[contracts.oracle]
 path = "contracts/oracle.clar"
+depends_on = []
 
-[[contracts]]
-name = "utils"
-path = "contracts/utils.clar"
+[contracts.lending-protocol]
+path = "contracts/lending-protocol.clar"
+depends_on = ["oracle", "utilities"]
+
+[contracts.governance]
+path = "contracts/governance.clar"
+depends_on = ["lending-protocol"]
+
+[repl]
+costs = true
+parser_version = 2
+
+[repl.analysis]
+passes = ["check_checker"]
